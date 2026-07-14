@@ -1,6 +1,6 @@
 import { useState } from "react"
 import CreateUser from "./components/CreateUser"
-
+import UserList from "./components/UserList"
 
 function App() {
   const [inputs, setInputs] = useState({
@@ -67,9 +67,21 @@ function App() {
     })
   }
 
+  const onRemove = (id) => {
+    setUsers(users.filter((user) => user.id !== id))
+  }
+
+  const onToggle = (id) => {
+    setUsers(
+      users.map((user) => user.id === id ? {...user, select: !user.select } : user)
+    )
+  }
+
+
   return (
     <>
     <CreateUser userid={userid} name={name} email={email} onChange={onChange} onCreate={onCreate}></CreateUser>
+    <UserList users={users} onRemove={onRemove} onToggle={onToggle} /> 
     </>
   )
 }

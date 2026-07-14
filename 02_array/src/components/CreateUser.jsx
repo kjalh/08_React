@@ -1,6 +1,6 @@
 import React from "react"
 
-function CreateUser({ userid, name, email, onChange, onCreate }) {
+function CreateUser({ userid, name, email, onChange, onCreate, onRemove }) {
     return (
         <div>
             <input name="userid" placeholder="아이디를 입력하세요" value={userid} onChange={onChange} />

@@ -34,3 +34,34 @@ useState
     
     const [state값, state 바꾸는 함수] = useState(초기값)
 
+useRef
+- 리액트 컴포넌트 안에서 값을 기억해두는 상자
+- 값을 바꿔도 리랜더링이 일어나지 않으며, 컴포넌트가 다시 렌더링되어도 상자의 값을 계속 재사용할 수 있음
+
+    const idInput = useRef()
+    console.log(ref.current)
+
+useEffect
+- 추가 작업 또는 외부 시스템과의 동기화 작업을 할 때 사용하는 상태 관리 함수
+
+    useEffect(() => {
+      실행할 작업
+      return() => {
+        바뀌기전 데이터를 반환(이전 작업을 정리할 함수)
+      }
+    }, [의존성])
+
+
+    1. 컴퍼넌트 함수 실행
+    2. jsx 생성
+        - 컴퍼넌트가 처음 화면에 나타날 때(초기 mount)
+    3. useEffect 실행
+        - user 설정: user값
+    4. user 값이 변경되었을 때(useEffect 재실행)
+    5. 컴포넌트가 화면에서 완전히 사라질 때 (unmount, useEffect 재실행)
+
+    초기 렌더링: user 설정: A
+    user 변경: user 바뀌기전: A, user 설정: B
+    user 다시 변경: user 바뀌기전: B, user 설정: C
+    컴포넌트 제거: user 바뀌기전: C
+

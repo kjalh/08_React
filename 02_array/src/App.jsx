@@ -1,6 +1,8 @@
 import { useState } from "react"
 import CreateUser from "./components/CreateUser"
 import UserList from "./components/UserList"
+import { useRef } from "react"
+
 
 function App() {
   const [inputs, setInputs] = useState({
@@ -50,9 +52,11 @@ function App() {
     })
   }
 
+  const nextId = useRef(5) // 암것도 안 넣으면 빈 값이 들어감
+
   const onCreate = () => {
     const user = {
-      id: 1,
+      id: nextId.current,
       userid,
       name,
       email
@@ -65,6 +69,8 @@ function App() {
       name: "",
       email: ""
     })
+
+    nextId.current += 1
   }
 
   const onRemove = (id) => {
@@ -73,15 +79,14 @@ function App() {
 
   const onToggle = (id) => {
     setUsers(
-      users.map((user) => user.id === id ? {...user, select: !user.select } : user)
+      users.map((user) => user.id === id ? { ...user, select: !user.select } : user)
     )
   }
 
-
   return (
     <>
-    <CreateUser userid={userid} name={name} email={email} onChange={onChange} onCreate={onCreate}></CreateUser>
-    <UserList users={users} onRemove={onRemove} onToggle={onToggle} /> 
+      <CreateUser userid={userid} name={name} email={email} onChange={onChange} onCreate={onCreate}></CreateUser>
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
     </>
   )
 }

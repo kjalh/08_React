@@ -1,5 +1,7 @@
 import React, {useState} from "react"
-import Products from "./components/Products"
+
+// import Products from "./components/Products"
+import Products from "./components/ProductHook"
 
 function App(){
 

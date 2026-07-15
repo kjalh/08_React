@@ -1,4 +1,8 @@
+// 이 파일은 필요없음 ProdictHook.jsx랑 useProdicts.js로 나눔
+
 import React, { useEffect, useState } from "react"
+import useProducts from "../hooks/useProducts"
+
 
 export default function Products() {
     const [loading, setLoading] = useState(false)
@@ -29,8 +33,11 @@ export default function Products() {
 
     return (
         <>
-            <input id="checkbox" type="checkbox" checked={checked} value={checked} onChange={handleChange} />
+            <input id="checkbox" type="checkbox" checked={checked} 
+            value={checked} onChange={handleChange} />
+
             <label htmlFor="checkbox">세일상품보기</label>
+
             <ul>
                 {products.map((product) => (
                     <li key={product.id}>

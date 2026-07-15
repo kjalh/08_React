@@ -5,6 +5,7 @@ import useProducts from "../hooks/useProducts"
 
 
 export default function Products() {
+    // 이런 상태 변수가 중복되면 부모에서 관리하는 게 좋음 아마 04_reducer에서 쓸듯
     const [loading, setLoading] = useState(false)
     const [checked, setChecked] = useState(false)
     const [error, setError] = useState()

@@ -1,0 +1,26 @@
+# Node dependencies (패키지 설치 폴더)
+node_modules/
+
+# Environment variables (환경 변수 및 비밀 키)
+.env
+.env.*
+!.env.example
+
+# Logs (로그 파일)
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating System Files (OS 임시 파일)
+.DS_Store
+Thumbs.db
+
+# IDE & Editors (에디터 설정 파일)
+.vscode/
+.idea/
+
+# Production build outputs (빌드 출력물 - 필요한 경우)
+dist/
+build/
